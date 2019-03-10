@@ -1,0 +1,10 @@
+.vscode
+
+.idea/
+.idea/*
+log
+configs/local/
+
+*.apollo.json
+go.sum
+config_local.json
