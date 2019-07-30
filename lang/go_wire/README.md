@@ -10,14 +10,14 @@
 
 ### Go Wire在使用过程中遇到的一些问题以及解决办法
 使用背景: 分层架构repo->manager->service->facade | <-options(third_party<-config)
-1. 同一元素多次依赖，常见于特性1中表述的使用方法，原因也已经说明
-`解决方法:`
+1. 同一元素多次依赖，常见于特性1中表述的使用方法，原因也已经说明  
+`解决方法:`  
 A. 对于repo manager third_party config层提供统一的注入全集，这样在上层调用中只需使用
 wire.NewSet(funcA,funB,funcC,allRepoSet,allManagerSet...)即可，把依赖全部提供，上层
 需要的只是将各种依赖合成的新的高层元素。  
 B. 同时在某一层级只需注入下一层级的全部依赖，本层可以自定义Func依赖，解决了同层级的相互引用问题
-2. 同一元素多个提供者，常见于接口的实现注入中
-`解决办法:`
+2. 同一元素多个提供者，常见于接口的实现注入中  
+`解决办法:`  
 目前Demo里遵循的原则是在struct定义中可以定义结构体变量为interface，但是在NewFunc中需要
 指定interface的实现者，而不是直接注入interface类型。这样做的原因是目前发现了interface的
 嵌套等用法，有可能会存在一个interface存在多个实现者并提供。
