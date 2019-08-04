@@ -2,7 +2,9 @@ package live
 
 import (
 	"fmt"
+	"github.com/google/wire"
 	"github.com/william-lg/go-exercises/lang/go_wire/config"
+	"github.com/william-lg/go-exercises/lang/go_wire/third_party"
 )
 
 type WebapiServiceImpl struct {
@@ -17,9 +19,9 @@ func NewWebapiServiceImpl(slsCg *config.SlsConfig, webapiCfg *config.WebapiConfi
 	}
 }
 
-//var WebapiServiceImplSet = wire.NewSet(
-//	NewWebapiServiceImpl,
-//	wire.Bind(new(third_party.WebapiService), new(WebapiServiceImpl)))
+var WebapiServiceImplSet = wire.NewSet(
+	NewWebapiServiceImpl,
+	wire.Bind(new(third_party.WebapiService), new(*WebapiServiceImpl)))
 
 func (WebapiServiceImpl) CreateOrder() {
 	fmt.Println("create order")

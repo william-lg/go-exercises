@@ -15,7 +15,7 @@ func NewWhsRepo() *Whs {
 
 var WhsRepoSet = wire.NewSet(
 	NewWhsRepo,
-	wire.Bind(new(repo.WhsIfc), new(Whs)))
+	wire.Bind(new(repo.WhsIfc), new(*Whs)))
 
 func (Whs) JustPrintWhs() {
 	fmt.Println("Whs Repo Print")

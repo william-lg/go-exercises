@@ -24,22 +24,8 @@ func InitLocationFacade() *LocationFacade {
 	webapiConfig := config.NewWebapiConfig()
 	wmsServiceImpl := live.NewWmsServiceImpl(slsConfig, webapiConfig)
 	locationManager := manager.NewLocationManager(whs, location, serviceImpl, wmsServiceImpl)
-	locationService := service.NewLocationService(locationManager)
+	orderManager := manager.NewOrderManager()
+	locationService := service.NewLocationService(locationManager, orderManager)
 	locationFacade := NewLocationFacade(locationService)
 	return locationFacade
-}
-
-func InitWhsFacade() *WhsFacade {
-	whs := mysql.NewWhsRepo()
-	slsConfig := config.NewSlsConfig()
-	serviceImpl := sls.NewServiceImpl(slsConfig)
-	whsManager := manager.NewWhsManager(whs, serviceImpl)
-	location := mysql.NewLocationRepo()
-	webapiConfig := config.NewWebapiConfig()
-	wmsServiceImpl := live.NewWmsServiceImpl(slsConfig, webapiConfig)
-	locationManager := manager.NewLocationManager(whs, location, serviceImpl, wmsServiceImpl)
-	locationService := service.NewLocationService(locationManager)
-	whsService := service.NewWhsService(whsManager, locationService)
-	whsFacade := NewWhsFacade(whsService, locationService)
-	return whsFacade
 }
