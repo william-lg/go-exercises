@@ -15,7 +15,7 @@ func NewLocationRepo() *Location {
 
 var LocationRepoSet = wire.NewSet(
 	NewLocationRepo,
-	wire.Bind(new(repo.LocationIfc), new(Location)))
+	wire.Bind(new(repo.LocationIfc), new(*Location)))
 
 func (loc Location) JustPrintLocation() {
 	fmt.Println("Location Repo Print")

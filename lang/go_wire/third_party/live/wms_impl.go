@@ -2,7 +2,9 @@ package live
 
 import (
 	"fmt"
+	"github.com/google/wire"
 	"github.com/william-lg/go-exercises/lang/go_wire/config"
+	"github.com/william-lg/go-exercises/lang/go_wire/third_party"
 )
 
 type WmsServiceImpl struct {
@@ -17,9 +19,9 @@ func NewWmsServiceImpl(slsCg *config.SlsConfig, webapiCfg *config.WebapiConfig) 
 	}
 }
 
-//var WmsServiceImplSet = wire.NewSet(
-//	NewWmsServiceImpl,
-//	wire.Bind(new(third_party.WmsService), new(WmsServiceImpl)))
+var WmsServiceImplSet = wire.NewSet(
+	NewWmsServiceImpl,
+	wire.Bind(new(third_party.WmsService), new(*WmsServiceImpl)))
 
 func (WmsServiceImpl) CreateWmsOrder() {
 	fmt.Println("create wms order")

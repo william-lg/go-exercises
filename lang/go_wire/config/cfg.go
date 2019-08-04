@@ -42,3 +42,8 @@ var AllConfigSet = wire.NewSet(
 	NewSlsConfig,
 	NewWebapiConfig,
 	NewWmsConfig)
+
+var AllConfigMockSet = wire.NewSet(
+	NewSlsConfig,
+	NewWebapiConfig,
+	NewWmsConfig)

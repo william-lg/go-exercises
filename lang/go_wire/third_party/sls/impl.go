@@ -2,7 +2,9 @@ package sls
 
 import (
 	"fmt"
+	"github.com/google/wire"
 	"github.com/william-lg/go-exercises/lang/go_wire/config"
+	"github.com/william-lg/go-exercises/lang/go_wire/third_party"
 )
 
 type ServiceImpl struct {
@@ -15,9 +17,9 @@ func NewServiceImpl(cfg *config.SlsConfig) *ServiceImpl {
 	}
 }
 
-//var ServiceImplSet = wire.NewSet(
-//	NewServiceImpl,
-//	wire.Bind(new(third_party.SlsService), new(ServiceImpl)))
+var ServiceImplSet = wire.NewSet(
+	NewServiceImpl,
+	wire.Bind(new(third_party.SlsService), new(*ServiceImpl)))
 
 func (ServiceImpl) CreateLogistic() {
 	fmt.Println("create logistic")
