@@ -3,7 +3,7 @@ package mysql
 import (
 	"fmt"
 	"github.com/google/wire"
-	"github.com/william-lg/go-exercises/lang/go_wire/repo"
+	"github.com/william-lg/go-exercises/go_wire/repo"
 )
 
 type Whs struct {

@@ -2,10 +2,10 @@ package service
 
 import (
 	"github.com/google/wire"
-	"github.com/william-lg/go-exercises/lang/go_wire/config"
-	"github.com/william-lg/go-exercises/lang/go_wire/manager"
-	"github.com/william-lg/go-exercises/lang/go_wire/repo/mysql"
-	"github.com/william-lg/go-exercises/lang/go_wire/third_party/sls"
+	"github.com/william-lg/go-exercises/go_wire/config"
+	"github.com/william-lg/go-exercises/go_wire/manager"
+	"github.com/william-lg/go-exercises/go_wire/repo/mysql"
+	"github.com/william-lg/go-exercises/go_wire/third_party/sls"
 )
 
 type LocationService struct {

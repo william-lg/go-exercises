@@ -1,9 +1,9 @@
 package manager
 
 import (
-	"github.com/william-lg/go-exercises/lang/go_wire/repo"
-	"github.com/william-lg/go-exercises/lang/go_wire/third_party"
-	"github.com/william-lg/go-exercises/lang/go_wire/third_party/sls"
+	"github.com/william-lg/go-exercises/go_wire/repo"
+	"github.com/william-lg/go-exercises/go_wire/third_party"
+	"github.com/william-lg/go-exercises/go_wire/third_party/sls"
 )
 
 type WhsManager struct {

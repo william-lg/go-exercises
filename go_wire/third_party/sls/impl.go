@@ -3,8 +3,8 @@ package sls
 import (
 	"fmt"
 	"github.com/google/wire"
-	"github.com/william-lg/go-exercises/lang/go_wire/config"
-	"github.com/william-lg/go-exercises/lang/go_wire/third_party"
+	"github.com/william-lg/go-exercises/go_wire/config"
+	"github.com/william-lg/go-exercises/go_wire/third_party"
 )
 
 type ServiceImpl struct {
